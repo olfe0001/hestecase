@@ -1,36 +1,13 @@
-<!--
-Sync Impact Report — midlertidigt reviewnotat; fjernes før eventuel commit.
-Version: 0.1.0-draft.1 -> 0.2.0-draft.1.
-Minorændring af et endnu ikke vedtaget udkast: undervisningskrav og interview er
-indarbejdet, og POC-afgrænsningen er præciseret; de centrale hensyn bevares.
-Principper:
-I. Sikkerhed og hestevelfærd går forud for ønsker -> samme titel, udvidet matchgrundlag.
-II. Fælles, daterede oplysninger skal kunne efterprøves -> samme titel, kildeprioritet tilføjet.
-III. Automatisk tildeling skal være forståelig og fagligt kontrollerbar ->
-     Ridelæreren kontrollerer og godkender fordelingen.
-IV. Arbejdsgange skal fungere under undervisningens tidspres -> samme titel;
-    konkrete POC-forløb flyttes til kommende specifikation.
-V. Registrér kun nødvendig og saglig viden om personer -> samme titel.
-VI. Løsn dokumenterede procesproblemer og vis sammenhængen ->
-    Krav og acceptkriterier skal styre udviklingen.
-VII. Afgræns piloten og muliggør senere udvidelser -> samme titel;
-     bred specifikation og lille kodet POC præciseret.
-Tilføjet: undervisningskilder, interview og fagopdeling i eksisterende afsnit.
-Fjernet: antagelsen om, at en rent klikbar mockup alene opfylder systemudvikling;
-forældede spørgsmål om valgt fokus og interviewets rolle.
-TODO: RATIFICATION_DATE, MATCHREGLER, FORDELING, DATA, POC, PRAKTIK.
-Ingen skabeloner, skills, BPMN-filer eller øvrige projektfiler ændret.
--->
-# Bøgegårdens grundprincipper for systemudvikling
+# Hestecase — Bøgegården Constitution
 
-**Status: Opdateret udkast til gruppens gennemgang — ikke vedtaget af gruppen.**
+**Status: Vedtaget som gruppens fælles arbejdsgrundlag den 2026-10-06.**
 
 Dette dokument beskriver de principper, som skal styre krav, planlægning, kode og
 vurdering af løsningen. Det er ikke en detaljeret kravspecifikation.
 “Materiale” er oplysninger fra kilderne. “Princip” og “Kontrol” er foreslåede
 projektregler. Gruppens allerede oplyste valg er markeret særskilt.
 
-## Grundprincipper
+## Core Principles
 
 ### I. Sikkerhed og hestevelfærd går forud for ønsker
 
@@ -180,7 +157,23 @@ Kilder, som er læst i projektarbejdet (sidenumre inkluderer forsider):
   især slide 4-7 og 10-18.
 - **K8:** `base-case-files/Heste Case SIPOC.pdf`, supplerende procesoverblik fra gruppen.
 
-## Gruppens review og åbne beslutninger
+## Udviklingsproces og kvalitetskontrol
+
+Arbejdet følger Constitution → Specify → Clarify → Plan → Tasks → Implement → Converge.
+Hvert trin skal bruge den gældende constitution og de foregående projektartefakter.
+
+- Før teknisk planlægning skal den valgte user story have acceptkriterier, og kritiske
+  åbne spørgsmål skal være afklaret eller dækket af tydeligt markerede antagelser.
+- Før implementering skal opgaverne kunne spores til krav og plan. Teknologivalg og
+  eventuelle afvigelser fra undervisningens ramme skal begrundes i planen.
+- Matchlogik skal afprøves med både gyldige matches og brud på de sikkerhedsregler,
+  som den valgte POC omfatter. Resultaterne skal dokumenteres; en vellykket
+  demonstration alene dokumenterer ikke, at reglerne virker i fejltilfælde.
+- Ændringer deles i GitHub via branches og pull requests. Før en pull request flettes
+  til `main`, skal mindst ét andet gruppemedlem gennemgå ændringen mod krav og
+  relevante principper. Kendte mangler og afvigelser skal fremgå af reviewet.
+- Ved evaluering skal implementeret, simuleret og manglende funktionalitet skelnes.
+  Mangler registreres som opgaver med henvisning til det berørte acceptkriterium.
 
 Gruppen skal gennemgå principperne og registrere de ændringer, den beslutter.
 Nedenstående spørgsmål skal besvares i den kommende afklaring eller erstattes af
@@ -199,22 +192,20 @@ udtrykkeligt markerede, afgrænsede antagelser. De er ikke allerede besluttet:
 - **TODO(PRAKTIK):** Hvilke enheder og netforhold forudsættes? Hvem vedligeholder
   hesteoplysninger, og hvilke brugere må se og ændre hvilke data?
 
-## Vedtagelse og ændringer
+## Governance
 
-Dokumentet er udarbejdet på brugerens anmodning, men gruppens fælles vedtagelse er
-ikke dokumenteret. **TODO(RATIFICATION_DATE):** Registrér datoen, når gruppen har
-vedtaget grundprincipperne. Indtil da er dokumentet et reviewudkast.
+Gruppens vedtagelse er bekræftet af brugeren den 2026-10-06. Denne version er
+projektets første vedtagne constitution.
 
-Foreslået styring: Efter vedtagelse er principperne fælles ramme for specifikation,
+Efter vedtagelse er principperne fælles ramme for specifikation,
 plan og implementering. Ved modstrid skal dokumenterne afstemmes og beslutningen
-registreres. Ændringer skal beskrive begrundelse og konsekvenser og godkendes af gruppen.
+registreres. Ændringer skal foreslås i en pull request, beskrive begrundelse og konsekvenser
+og godkendes af gruppen. Berørte krav, planer og opgaver skal derefter afstemmes.
 Ved hver overgang i Spec Kit-forløbet kontrollerer gruppen princippernes overholdelse.
 
 Versionspolitik: Første vedtagne version bliver 1.0.0. Derefter ændres hovedversionen
 ved uforenelige ændringer eller fjernelse af principper, minorversionen ved tilføjelser
 og væsentlige udvidelser og patchversionen ved sproglige præciseringer.
-Denne revision udvider det tidligere udkast med interview og undervisningskrav og
-har derfor udkastversion 0.2.0-draft.1. Ingen gruppevedtagelse er forudsat.
+Version 1.0.0 fastlægger de principper og den udviklingsproces, som gruppen har vedtaget.
 
-**Version**: 0.2.0-draft.1 | **Vedtaget**: Afventer gruppens gennemgang
-**Senest ændret**: 2026-10-06
+**Version**: 1.0.0 | **Ratified**: 2026-10-06 | **Last Amended**: 2026-10-06
