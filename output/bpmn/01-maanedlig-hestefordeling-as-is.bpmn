@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<bpmn:definitions xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_01-maanedlig-hestefordeling-as-is" targetNamespace="https://boegegaarden.example/bpmn" exporter="Project draft generator">
+  <bpmn:collaboration id="Collab">
+    <bpmn:participant id="Pool" name="Bøgegården" processRef="Process" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process" name="AS-IS · Månedlig hestefordeling" isExecutable="false">
+    <bpmn:documentation>To baner i én fælles proces: Ridelærere og Elever. Kilder: SIPOC trin 1-4, case s. 2-4 og interview. A1: konfliktkontrol og omarbejde kræver bekræftelse. Se laes-mig.md.</bpmn:documentation>
+    <bpmn:laneSet id="Lanes">
+      <bpmn:lane id="Teacher" name="Ridelærere">
+        <bpmn:flowNodeRef>Collect</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Check</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Match</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Conflict</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Adjust</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>List</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1eoumw2</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Students" name="Elever">
+        <bpmn:flowNodeRef>Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Wish</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0uct98k</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start" name="Sidste ridetime i måneden">
+      <bpmn:documentation>Case s. 2. Én proces dækker lærerens månedsfordeling; elevbanen sammenfatter elevernes bidrag.</bpmn:documentation>
+      <bpmn:outgoing>F1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Wish" name="Aflever op til tre hesteønsker">
+      <bpmn:documentation>Case og interview: elever afgiver ønsker. Forældre kan støtte eleven.</bpmn:documentation>
+      <bpmn:incoming>F1</bpmn:incoming>
+      <bpmn:outgoing>F2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Collect" name="Indsaml og notér hesteønsker">
+      <bpmn:documentation>SIPOC trin 1. Ønsker noteres på telefon.</bpmn:documentation>
+      <bpmn:incoming>F2</bpmn:incoming>
+      <bpmn:outgoing>F3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Check" name="Tjek tilgængelighed og belastning">
+      <bpmn:documentation>SIPOC trin 2. Manuel vurdering ud fra lister, whiteboard og tavs viden; casens velfærdsregler gælder.</bpmn:documentation>
+      <bpmn:incoming>F3</bpmn:incoming>
+      <bpmn:incoming>F8</bpmn:incoming>
+      <bpmn:outgoing>F4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Match" name="Match og fordel heste">
+      <bpmn:documentation>SIPOC trin 3. Manuel fordeling med elevhensyn og ønsker.</bpmn:documentation>
+      <bpmn:incoming>F4</bpmn:incoming>
+      <bpmn:outgoing>F5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Conflict" name="Opdages konflikt?" gatewayDirection="Diverging">
+      <bpmn:documentation>A1: eksplicit kontrol og omarbejde er en modelleringsantagelse.</bpmn:documentation>
+      <bpmn:incoming>F5</bpmn:incoming>
+      <bpmn:outgoing>F6</bpmn:outgoing>
+      <bpmn:outgoing>F7</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Adjust" name="Ret fordelingen">
+      <bpmn:documentation>A1: manuel rettelse og fornyet vurdering. Praksis ved uløselig fordeling er uafklaret.</bpmn:documentation>
+      <bpmn:incoming>F7</bpmn:incoming>
+      <bpmn:outgoing>F8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="List" name="Print og opdater holdlister">
+      <bpmn:documentation>SIPOC trin 4. Print og fysisk mappe; ingen automatisk afstemning med kontoret.</bpmn:documentation>
+      <bpmn:incoming>F6</bpmn:incoming>
+      <bpmn:outgoing>F9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="F1" sourceRef="Start" targetRef="Wish" />
+    <bpmn:sequenceFlow id="F2" sourceRef="Wish" targetRef="Collect" />
+    <bpmn:sequenceFlow id="F3" sourceRef="Collect" targetRef="Check" />
+    <bpmn:sequenceFlow id="F4" sourceRef="Check" targetRef="Match" />
+    <bpmn:sequenceFlow id="F5" sourceRef="Match" targetRef="Conflict" />
+    <bpmn:sequenceFlow id="F6" name="Nej" sourceRef="Conflict" targetRef="List" />
+    <bpmn:sequenceFlow id="F7" name="Ja" sourceRef="Conflict" targetRef="Adjust" />
+    <bpmn:sequenceFlow id="F8" sourceRef="Adjust" targetRef="Check" />
+    <bpmn:sequenceFlow id="F9" sourceRef="List" targetRef="Activity_1eoumw2" />
+    <bpmn:task id="Activity_1eoumw2" name="Ridelære afleverer holdlisterne i mappen">
+      <bpmn:documentation>SIPOC trin 4. Print og fysisk mappe; ingen automatisk afstemning med kontoret.</bpmn:documentation>
+      <bpmn:incoming>F9</bpmn:incoming>
+      <bpmn:outgoing>Flow_08l5zio</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_08l5zio" sourceRef="Activity_1eoumw2" targetRef="Activity_0uct98k" />
+    <bpmn:endEvent id="Activity_0uct98k" name="Elever ved hvilken hest de får">
+      <bpmn:incoming>Flow_08l5zio</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram" name="AS-IS · Månedlig hestefordeling">
+    <bpmndi:BPMNPlane id="Plane" bpmnElement="Collab">
+      <bpmndi:BPMNShape id="Shape_Pool" bpmnElement="Pool" isHorizontal="true" bioc:stroke="#64748b" bioc:fill="#ffffff">
+        <dc:Bounds x="70" y="190" width="2270" height="620" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Students" bpmnElement="Students" isHorizontal="true" bioc:stroke="#86efac" bioc:fill="#f0fdf4">
+        <dc:Bounds x="100" y="540" width="2240" height="270" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Teacher" bpmnElement="Teacher" isHorizontal="true" bioc:stroke="#93c5fd" bioc:fill="#eff6ff">
+        <dc:Bounds x="100" y="190" width="2240" height="350" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="Start" bioc:stroke="#15803d" bioc:fill="#dcfce7">
+        <dc:Bounds x="170" y="632" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="120" y="676" width="136" height="45" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Wish" bpmnElement="Wish" bioc:stroke="#16a34a" bioc:fill="#dcfce7">
+        <dc:Bounds x="270" y="610" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Collect" bpmnElement="Collect" bioc:stroke="#2563eb" bioc:fill="#dbeafe">
+        <dc:Bounds x="500" y="280" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Check" bpmnElement="Check" bioc:stroke="#2563eb" bioc:fill="#dbeafe">
+        <dc:Bounds x="735" y="280" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Match" bpmnElement="Match" bioc:stroke="#2563eb" bioc:fill="#dbeafe">
+        <dc:Bounds x="970" y="280" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Conflict" bpmnElement="Conflict" isMarkerVisible="true" bioc:stroke="#b45309" bioc:fill="#fef3c7">
+        <dc:Bounds x="1215" y="295" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1165" y="353" width="150" height="45" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Adjust" bpmnElement="Adjust" bioc:stroke="#2563eb" bioc:fill="#dbeafe">
+        <dc:Bounds x="970" y="435" width="180" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_List" bpmnElement="List" bioc:stroke="#2563eb" bioc:fill="#dbeafe">
+        <dc:Bounds x="1420" y="280" width="180" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1786qpd" bpmnElement="Activity_1eoumw2" bioc:stroke="#2563eb" bioc:fill="#dbeafe">
+        <dc:Bounds x="1650" y="280" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0bojj0k" bpmnElement="Activity_0uct98k" bioc:stroke="#16a34a" bioc:fill="#dcfce7">
+        <dc:Bounds x="2212" y="632" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2150" y="680" width="160" height="42" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_F1" bpmnElement="F1">
+        <di:waypoint x="206" y="650" />
+        <di:waypoint x="270" y="650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F2" bpmnElement="F2">
+        <di:waypoint x="450" y="650" />
+        <di:waypoint x="590" y="650" />
+        <di:waypoint x="590" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F3" bpmnElement="F3">
+        <di:waypoint x="680" y="320" />
+        <di:waypoint x="735" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F4" bpmnElement="F4">
+        <di:waypoint x="915" y="320" />
+        <di:waypoint x="970" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F5" bpmnElement="F5">
+        <di:waypoint x="1150" y="320" />
+        <di:waypoint x="1215" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F6" bpmnElement="F6">
+        <di:waypoint x="1265" y="320" />
+        <di:waypoint x="1420" y="320" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1277.5" y="296" width="130" height="35" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F7" bpmnElement="F7">
+        <di:waypoint x="1240" y="345" />
+        <di:waypoint x="1240" y="467.5" />
+        <di:waypoint x="1150" y="467.5" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1175" y="382.25" width="130" height="35" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F8" bpmnElement="F8">
+        <di:waypoint x="970" y="467.5" />
+        <di:waypoint x="825" y="467.5" />
+        <di:waypoint x="825" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_F9" bpmnElement="F9">
+        <di:waypoint x="1600" y="320" />
+        <di:waypoint x="1650" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08l5zio_di" bpmnElement="Flow_08l5zio">
+        <di:waypoint x="1830" y="320" />
+        <di:waypoint x="2050" y="320" />
+        <di:waypoint x="2050" y="650" />
+        <di:waypoint x="2212" y="650" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

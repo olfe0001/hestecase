@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2040" height="880" viewBox="0 0 2040 880">
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L9,3 L0,6 Z" fill="#334155"/></marker><marker id="msg" markerWidth="12" markerHeight="10" refX="10" refY="4" orient="auto"><path d="M1,1 L10,4 L1,7 Z" fill="white" stroke="#64748b"/></marker></defs>
+<rect width="2040" height="880" fill="white"/>
+<text x="1020" y="60" font-family="Arial,sans-serif" font-size="23" fill="#172033" text-anchor="middle"><tspan x="1020" dy="0">AS-IS · Månedlig hestefordeling</tspan></text>
+<text x="1020" y="110" font-family="Arial,sans-serif" font-size="16" fill="#172033" text-anchor="middle"><tspan x="1020" dy="0">Blå: ridelærere     Grøn: elever     Gul: beslutning</tspan></text>
+<rect x="70" y="190" width="1900" height="620" fill="#ffffff" stroke="#64748b"/>
+<text transform="translate(90,500.0) rotate(-90)" font-family="Arial" font-size="14" text-anchor="middle">Bøgegården</text>
+<rect x="100" y="190" width="1870" height="350" fill="#eff6ff" stroke="#93c5fd"/>
+<text transform="translate(120,365.0) rotate(-90)" font-family="Arial" font-size="14" text-anchor="middle">Ridelærere</text>
+<rect x="100" y="540" width="1870" height="270" fill="#f0fdf4" stroke="#86efac"/>
+<text transform="translate(120,675.0) rotate(-90)" font-family="Arial" font-size="14" text-anchor="middle">Elever</text>
+<polyline points="206,650 270,650" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="450,650 590,650 590,360" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="680,320 735,320" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="915,320 970,320" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="1150,320 1215,320" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="1265,320 1420,320" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="1342.5" y="308.0" font-family="Arial,sans-serif" font-size="12" fill="#172033" text-anchor="middle"><tspan x="1342.5" dy="0">Nej</tspan></text>
+<polyline points="1240,345 1240,467.5 1150,467.5" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="1240.0" y="394.25" font-family="Arial,sans-serif" font-size="12" fill="#172033" text-anchor="middle"><tspan x="1240.0" dy="0">Ja</tspan></text>
+<polyline points="970,467.5 825,467.5 825,360" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="1600,320 1720,320" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+<circle cx="188.0" cy="650.0" r="18.0" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+<text x="188.0" y="690" font-family="Arial,sans-serif" font-size="13" fill="#172033" text-anchor="middle"><tspan x="188.0" dy="0">Sidste ridetime i</tspan><tspan x="188.0" dy="17">måneden</tspan></text>
+<rect x="270" y="610" width="180" height="80" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+<text x="360.0" y="639" font-family="Arial,sans-serif" font-size="14" fill="#172033" text-anchor="middle"><tspan x="360.0" dy="0">Aflever op til tre</tspan><tspan x="360.0" dy="18">hesteønsker</tspan></text>
+<rect x="500" y="280" width="180" height="80" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="590.0" y="309" font-family="Arial,sans-serif" font-size="14" fill="#172033" text-anchor="middle"><tspan x="590.0" dy="0">Indsaml og notér</tspan><tspan x="590.0" dy="18">hesteønsker</tspan></text>
+<rect x="735" y="280" width="180" height="80" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="825.0" y="309" font-family="Arial,sans-serif" font-size="14" fill="#172033" text-anchor="middle"><tspan x="825.0" dy="0">Tjek tilgængelighed og</tspan><tspan x="825.0" dy="18">belastning</tspan></text>
+<rect x="970" y="280" width="180" height="80" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1060.0" y="309" font-family="Arial,sans-serif" font-size="14" fill="#172033" text-anchor="middle"><tspan x="1060.0" dy="0">Match og fordel heste</tspan></text>
+<path d="M1240.0,295 L1265,320.0 L1240.0,345 L1215,320.0 Z" fill="#fef3c7" stroke="#b45309"/>
+<text x="1240.0" y="326.0" font-family="Arial,sans-serif" font-size="24" fill="#172033" text-anchor="middle"><tspan x="1240.0" dy="0">×</tspan></text>
+<text x="1240.0" y="367" font-family="Arial,sans-serif" font-size="13" fill="#172033" text-anchor="middle"><tspan x="1240.0" dy="0">Opdages konflikt?</tspan></text>
+<rect x="970" y="435" width="180" height="65" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1060.0" y="464" font-family="Arial,sans-serif" font-size="14" fill="#172033" text-anchor="middle"><tspan x="1060.0" dy="0">Ret fordelingen</tspan></text>
+<rect x="1420" y="280" width="180" height="80" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+<text x="1510.0" y="309" font-family="Arial,sans-serif" font-size="14" fill="#172033" text-anchor="middle"><tspan x="1510.0" dy="0">Print og opdater</tspan><tspan x="1510.0" dy="18">holdlister</tspan></text>
+<circle cx="1738.0" cy="320.0" r="18.0" fill="#dcfce7" stroke="#15803d" stroke-width="3.5"/>
+<text x="1738.0" y="360" font-family="Arial,sans-serif" font-size="13" fill="#172033" text-anchor="middle"><tspan x="1738.0" dy="0">Fordeling klar i</tspan><tspan x="1738.0" dy="17">mappen</tspan></text>
+<text x="1020" y="855" font-family="Arial,sans-serif" font-size="13" fill="#172033" text-anchor="middle"><tspan x="1020" dy="0">AS-IS · Udkast 2026-10-02 · Generiske BPMN-opgaver · Kilder og antagelser i laes-mig.md</tspan></text>
+</svg>
