@@ -1,0 +1,177 @@
+{
+  "source": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+  "pages": [
+    1,
+    2
+  ],
+  "groups": [
+    {
+      "id": "group-tuesday",
+      "name": "Fredag · hold 1 · begynder",
+      "level": 1,
+      "time": "15:00",
+      "students": [
+        {
+          "id": "student-alma",
+          "name": "Ellen Frellsen"
+        },
+        {
+          "id": "student-noah",
+          "name": "Filippa Udby"
+        },
+        {
+          "id": "student-freja",
+          "name": "Johanne Johansen"
+        },
+        {
+          "id": "student-ella",
+          "name": "Sofia Ejby"
+        },
+        {
+          "id": "case-student-1-5",
+          "name": "Alberte Solby"
+        },
+        {
+          "id": "case-student-1-6",
+          "name": "Lærke Hansen"
+        },
+        {
+          "id": "case-student-1-7",
+          "name": "Viola Jensen"
+        }
+      ]
+    },
+    {
+      "id": "group-friday",
+      "name": "Fredag · hold 2 · letøvet",
+      "level": 2,
+      "time": "15:45",
+      "students": [
+        {
+          "id": "student-oscar",
+          "name": "Freja Olsen"
+        },
+        {
+          "id": "student-william",
+          "name": "Ella Lundkvist"
+        },
+        {
+          "id": "student-sofia",
+          "name": "Freya Holm"
+        },
+        {
+          "id": "case-student-2-4",
+          "name": "Emma Grønby"
+        },
+        {
+          "id": "case-student-2-5",
+          "name": "Lærke Broby"
+        },
+        {
+          "id": "case-student-2-6",
+          "name": "Nora Grønbjerg"
+        },
+        {
+          "id": "case-student-2-7",
+          "name": "Sophia Kronborg"
+        },
+        {
+          "id": "case-student-2-8",
+          "name": "Viktoria Kristensen"
+        },
+        {
+          "id": "student-lucas",
+          "name": "Victoria Åby"
+        }
+      ]
+    },
+    {
+      "id": "group-friday-3",
+      "name": "Fredag · hold 3 · øvet",
+      "level": 3,
+      "time": "16:30",
+      "students": [
+        {
+          "id": "case-student-3-1",
+          "name": "Andrea Dahl"
+        },
+        {
+          "id": "case-student-3-2",
+          "name": "Clara Bjerg"
+        },
+        {
+          "id": "case-student-3-3",
+          "name": "Ella Justesen"
+        },
+        {
+          "id": "case-student-3-4",
+          "name": "Josefine Ibsen"
+        },
+        {
+          "id": "case-student-3-5",
+          "name": "Klara Holmeby"
+        },
+        {
+          "id": "case-student-3-6",
+          "name": "Leonora Vinter"
+        },
+        {
+          "id": "case-student-3-7",
+          "name": "Molly Jensen"
+        },
+        {
+          "id": "case-student-3-8",
+          "name": "Marie Rundholm"
+        },
+        {
+          "id": "case-student-3-9",
+          "name": "Sara Troelsen"
+        },
+        {
+          "id": "case-student-3-10",
+          "name": "Sofia Westergaard"
+        }
+      ]
+    },
+    {
+      "id": "group-friday-4",
+      "name": "Fredag · hold 4 · letøvet",
+      "level": 2,
+      "time": "17:15",
+      "students": [
+        {
+          "id": "case-student-4-1",
+          "name": "Agnes Riis"
+        },
+        {
+          "id": "case-student-4-2",
+          "name": "Anna Gammelgård"
+        },
+        {
+          "id": "case-student-4-3",
+          "name": "Johanna Rindbo"
+        },
+        {
+          "id": "case-student-4-4",
+          "name": "Freja Pedersen"
+        },
+        {
+          "id": "case-student-4-5",
+          "name": "Josephine Iversen"
+        },
+        {
+          "id": "case-student-4-6",
+          "name": "Liv Danby"
+        },
+        {
+          "id": "case-student-4-7",
+          "name": "Selma Janbo"
+        },
+        {
+          "id": "case-student-4-8",
+          "name": "Victoria Skovby"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+.git
+node_modules
+**/node_modules
+client/dist
+.env
+.env.*
+*.log
+.DS_Store
+tmp
+output
+base-case-files
+slides-fra-undervisningen
+.agents
+.specify
+specs

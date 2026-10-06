@@ -1,0 +1,727 @@
+{
+  "horses": [
+    {
+      "id": "boy",
+      "name": "Boy",
+      "kind": "horse",
+      "heightCm": 150,
+      "temperament": "Svær at styre",
+      "description": "Svær at styre for børn med rideangst. Svær at ride i skoven.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 2,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "fear-sensitive",
+          "label": "Kræver lærerens vurdering ved rideangst eller nervøsitet"
+        },
+        {
+          "code": "trail-caution",
+          "label": "Særlig forsigtighed ved skovridning"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "oline",
+      "name": "Oline",
+      "kind": "pony",
+      "heightCm": 145,
+      "temperament": "Nervøs i skoven",
+      "description": "Meget nervøs i skoven.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "trail-caution",
+          "label": "Særlig forsigtighed ved skovridning"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "aslan",
+      "name": "Aslan",
+      "kind": "horse",
+      "heightCm": 160,
+      "temperament": "Nem",
+      "description": "Nem for de fleste.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "jane",
+      "name": "Jane",
+      "kind": "pony",
+      "heightCm": 148,
+      "temperament": "Meget doven",
+      "description": "Meget doven.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "donny",
+      "name": "Donny",
+      "kind": "pony",
+      "heightCm": 142,
+      "temperament": "Ikke beskrevet",
+      "description": "Svær at gøre klar før og efter ridning på grund af vorter.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "handling-support",
+          "label": "Hjælp til klargøring og håndtering"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "toobi",
+      "name": "Toobi",
+      "kind": "pony",
+      "heightCm": 140,
+      "temperament": "Nem og sød",
+      "description": "Nem og sød; manges yndlingshest.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "zigge",
+      "name": "Zigge",
+      "kind": "pony",
+      "heightCm": 142,
+      "temperament": "Nem, lidt doven",
+      "description": "Nem, lidt doven.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "missy",
+      "name": "Missy",
+      "kind": "pony",
+      "heightCm": 144,
+      "temperament": "Nem at ride",
+      "description": "Nem at ride, men sparker andre heste, hvis de kommer for tæt på. Ikke tunge ryttere.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "keep-distance",
+          "label": "Hold afstand til andre heste"
+        },
+        {
+          "code": "light-riders",
+          "label": "Kun lette ryttere; konkret vægtgrænse skal afklares"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "boelle",
+      "name": "Bølle",
+      "kind": "pony",
+      "heightCm": 138,
+      "temperament": "Ikke beskrevet",
+      "description": "Mangler et øje. Svær at gøre klar i stalden. Må ikke springe.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 0,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "handling-support",
+          "label": "Hjælp til klargøring og håndtering"
+        },
+        {
+          "code": "one-eye",
+          "label": "Mangler et øje"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "arthur",
+      "name": "Arthur",
+      "kind": "pony",
+      "heightCm": 127,
+      "temperament": "Nem, lidt doven",
+      "description": "Nem, men lidt doven. Ikke til øvet hold. Maksimalt ét springhold.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "no-advanced",
+          "label": "Ikke til øvet hold"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "wally",
+      "name": "Wally",
+      "kind": "pony",
+      "heightCm": 115,
+      "temperament": "Ikke beskrevet",
+      "description": "Kun lette ryttere. Må ikke springe.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 0,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "light-riders",
+          "label": "Kun lette ryttere; konkret vægtgrænse skal afklares"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "pixie",
+      "name": "Pixie",
+      "kind": "horse",
+      "heightCm": 152,
+      "temperament": "Meget frisk",
+      "description": "Meget frisk og svær at ride for børn med rideangst.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 2,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "fear-sensitive",
+          "label": "Kræver lærerens vurdering ved rideangst eller nervøsitet"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "freya",
+      "name": "Freya",
+      "kind": "pony",
+      "heightCm": 139,
+      "temperament": "Meget frisk",
+      "description": "Meget frisk, ikke egnet til nervøse ryttere.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 2,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "fear-sensitive",
+          "label": "Kræver lærerens vurdering ved rideangst eller nervøsitet"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "twister",
+      "name": "Twister",
+      "kind": "pony",
+      "heightCm": 136,
+      "temperament": "Doven",
+      "description": "Doven, men nem nok.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "belle",
+      "name": "Belle",
+      "kind": "horse",
+      "heightCm": 153,
+      "temperament": "Nem",
+      "description": "Nem.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "karla",
+      "name": "Karla",
+      "kind": "pony",
+      "heightCm": 120,
+      "temperament": "Svær at få frem",
+      "description": "Svær at få til at gå fremad.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 0,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "rosa",
+      "name": "Rosa",
+      "kind": "horse",
+      "heightCm": 152,
+      "temperament": "Kræver blid, bestemt styring",
+      "description": "Svær at gøre klar på grund af vorter. Skal styres blidt, men bestemt; ellers går hun ind på midten og står stille.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 2,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "handling-support",
+          "label": "Hjælp til klargøring og håndtering"
+        },
+        {
+          "code": "gentle-rider",
+          "label": "Blid, men bestemt rytter"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "aida",
+      "name": "Aida",
+      "kind": "pony",
+      "heightCm": 128,
+      "temperament": "Svær at ride",
+      "description": "Svær at gøre klar på grund af vorter. Kan smide børn af, hvis hun ikke gider ridning. Må ikke springe.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 0,
+      "minRiderLevel": 2,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "handling-support",
+          "label": "Hjælp til klargøring og håndtering"
+        },
+        {
+          "code": "teacher-review",
+          "label": "Læreren skal vurdere sikkerhed før tildeling"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    },
+    {
+      "id": "cornelius",
+      "name": "Cornelius",
+      "kind": "pony",
+      "heightCm": 132,
+      "temperament": "Meget frisk",
+      "description": "Meget frisk. Kan være svær at styre.",
+      "status": "available",
+      "availabilityReason": null,
+      "maxDailyLessons": 3,
+      "restDay": 0,
+      "maxWeeklyJumps": 1,
+      "minRiderLevel": 2,
+      "maxRiderWeightKg": null,
+      "allowedActivities": [
+        "dressage",
+        "jumping",
+        "trail"
+      ],
+      "needs": [
+        {
+          "code": "fear-sensitive",
+          "label": "Kræver lærerens vurdering ved rideangst eller nervøsitet"
+        }
+      ],
+      "source": {
+        "file": "base-case-files/fredagsheste jan-jun TIL CASE.pdf",
+        "page": 3
+      },
+      "syntheticFields": [
+        "kind",
+        "status",
+        "maxDailyLessons",
+        "restDay",
+        "maxWeeklyJumps",
+        "minRiderLevel",
+        "allowedActivities"
+      ]
+    }
+  ]
+}

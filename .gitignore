@@ -1,1 +1,9 @@
 .DS_Store
+node_modules/
+client/dist/
+*.log
+.env
+.env.*
+!.env.example
+coverage/
+tmp/

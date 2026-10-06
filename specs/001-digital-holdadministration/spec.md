@@ -1,314 +1,236 @@
-# Feature Specification: Digital holdadministration på Bøgegården
+# Feature Specification: Stald — hesteregistrering og fordeling
 
-**Feature Branch**: Ingen feature-branch oprettet; arbejdet ligger lokalt på `main`.
+**Created / Updated**: 2026-10-06
+**Branch**: Lokalt på `main`; ingen påstået feature-branch eller gennemført PR-review.
+**Status**: Implementeret mockup; afstemt med brugerens endelige omfang.
+**Constitution**: [2.0.0](../../.specify/memory/constitution.md).
 
-**Created**: 2026-10-06
+## Formål og leverance
 
-**Status**: Draft — til gruppens gennemgang og Clarify.
+En ridelærer skal kunne se sine elever og hold, skolens heste og elevernes ønsker,
+få et fordelingsforslag og rette/godkende det. Eleven skal kunne se egne hold og
+sin godkendte hest, vælge op til tre heste og ændre egne hensyn. Arbejdsgangene skal
+være overskuelige i en dansk hjemmeside med adgang uden kode.
 
-**Input**: Brugeren har vedtaget constitution og bedt om næste trin, Specify.
-Specifikationen beskriver hele casens systembehov. Matchning mellem hest og elev er
-POC-fokus i constitution; den konkrete POC-afgrænsning nedenfor er et forslag.
+Denne specifikation gælder den ønskede mockup, ikke alle funktioner i den bredere
+rideskolecase. Planen indeholder teknologivalg. Den første bredere Specify blev
+afgrænset og senere udvidet efter brugerens valg; dette er dokumenteret som iterationer
+[i procesbeskrivelsen](../../docs/process.md), ikke som efterdateret forhåndsplanlægning.
 
-## User Scenarios & Testing *(mandatory)*
+### Inden for omfanget
 
-### User Story 1 - Få og godkend sikre matchforslag (Priority: P1)
+- Lærer-/elevprofilvalg, logout og skoleafgrænset adgang.
+- Lærerens egne elever/hold og alle samme skoles heste.
+- Hesteregistrering med egenskaber, grænser og hensyn; ændring af tilgængelighed.
+- Op til tre urangerede ønsker pr. elev, hold og demonstrationsmåned.
+- Elevens redigering af egne funktionelle hensyn.
+- Forslag, manuelle rettelser, begrundede lærerbeslutninger og godkendelse.
+- Gemte data, revisioner og historik samt realistiske, mærkede mockupbilleder.
+- Flere rideskoler i samme datamodel og brug på desktop/mobil.
 
-Som ridelærer vil jeg få forslag til heste til eleverne på et valgt hold ud fra
-deres forudsætninger og ønsker, så jeg kan fordele hestene med færre manuelle
-kontroller og uden kendte brud på sikkerheds- og velfærdsreglerne.
+### Mulige udvidelser uden for leverancen
 
-**Why this priority**: Forkerte matches påvirker sikkerhed og undervisning.
-Dette er projektets foreslåede POC-user story.
+Fuld månedsoptimering og månedsafslutning, partholdsaftaler, administrativ oprettelse
+og flytning af elever/hold, ventelister, kontingent og betaling, fremmøde og faktisk
+hestebrug, velfærdsrapporter, beskeder, afløser-/administratorroller, upload af egne
+fotos og verificeret produktionslogin. Disse er fremtidige muligheder og ikke
+manglende obligatoriske funktioner i denne mockup.
 
-**Independent Test**: Brug et forberedt hold med syntetiske elever, heste,
-ønsker og ugentlig plan. Gennemfør forslag, manuel rettelse og godkendelse uden
-at bygge medlemsadministration eller fremmøderegistrering først.
+## Clarifications
 
-**Acceptance Scenarios**:
+### Oprindelige fem valg — 2026-10-06
 
-1. **Given** et hold med egnede og tilgængelige heste, **When** læreren anmoder
-   om forslag, **Then** får hver elev et begrundet forslag eller en synlig
-   besked om, at et match ikke kan findes; forslag er endnu ikke godkendte.
-2. **Given** en syg hest, en fuldt belastet hest og en hest med uegnede egenskaber,
-   **When** forslag dannes, **Then** foreslås ingen af disse til den berørte elev,
-   og årsagerne kan ses af læreren.
-3. **Given** et forslag, **When** læreren vælger en anden hest, **Then** kontrolleres
-   ændringen mod de samme regler; en konflikt vises og hindrer godkendelse.
-4. **Given** to samtidige elever, **When** samme hest vælges til begge,
-   **Then** vises dobbelttildelingen, og fordelingen kan ikke godkendes.
-5. **Given** et komplet, konfliktfrit forslag og opdaterede oplysninger,
-   **When** læreren godkender, **Then** fremgår fordelingens status, godkender
-   og tidspunkt, og fordelingen kan ses af en afløser.
-6. **Given** manglende kritiske matchoplysninger eller ingen egnet hest,
-   **When** læreren forsøger at godkende hele holdets fordeling,
-   **Then** blokeres godkendelsen, og de uafklarede elever fremgår.
+1. Blandt egnede elever prioriteres den, der længst har ønsket hesten uden at få den.
+2. Ventetid tælles som sammenhængende måneder med uopfyldt ønske pr. elev/hold/hest.
+   Modtaget hest eller ophørt ønske afbryder rækken i det registrerede månedsgrundlag.
+3. Ved lige ventetid viser systemet konflikten; læreren vælger med begrundelse.
+4. Nye elever starter på nul. Manglende historik for eksisterende elever kræver
+   lærerens afklaring af prioriteringen før godkendelse.
+5. Godkendte fordelinger og ændringshistorik skal bevares efter genstart.
 
-### User Story 2 - Vedligehold hesteoplysninger og håndter akut sygdom (Priority: P1)
+### Efterfølgende brugerbeslutninger — 2026-10-06
 
-Som staldansvarlig vil jeg registrere relevante ændringer i hestens egnethed og
-tilgængelighed, så lærere og afløsere arbejder ud fra samme oplysninger.
+- Mockuppen omfatter både lærer og elev; kodefri adgang er profilvalg.
+- Den ønskede tekniske stack, 3NF og genbrug på andre rideskoler beskrives i planen.
+- Casens 19 heste og senere alle 34 elevnavne/fredagshold indlæses.
+- Elevens egne hensyn kan ændres; realistiske billeder er tydeligt mærkede mockups.
+- Ingen unit tests kræves; build, relevante integrationer og browserforløb afprøves.
+- Denne afstemning gør mockuppen til leverancens scope; den bredere case er baggrund.
 
-**Why this priority**: Matchforslag kræver aktuelle hesteoplysninger.
+## User Scenarios & Testing
 
-**Independent Test**: Brug en eksisterende hest og en forberedt fordeling.
-Registrér sygdom og kontrollér, at berørte tildelinger markeres.
+Story- og krav-id'er bevares, hvor de stadig gælder, så eksisterende opgaver kan spores.
+US3/US5/US6 og FR-010/012–016/018–019 fra den bredere spec er udgået af leverancen;
+deres emner står ovenfor som mulige udvidelser. Id'erne genbruges ikke til andre krav.
 
-**Acceptance Scenarios**:
+### US8 — Adgang som lærer eller elev (P1)
 
-1. **Given** en hest, **When** en ansvarlig registrerer sygdom for en periode,
-   **Then** vises hesten som utilgængelig i perioden, og berørte fordelinger
-   markeres som krævende ny kontrol, også hvis de tidligere var godkendte.
-2. **Given** en utilgængelig hest, **When** læreren søger en erstatning,
-   **Then** anvendes de almindelige match- og belastningsregler; hvis ingen
-   erstatning findes, vises problemet uden en automatisk usikker tildeling.
-3. **Given** en hest, der er solgt, **When** den afsluttes som aktiv rideskolehest,
-   **Then** kan den ikke tildeles fremover, mens tidligere brug bevares.
+Som lærer/elev vil jeg vælge rideskole og profil uden kode og få mit relevante overblik.
+**Selvstændig afprøvning:** Vælg rolle/profil, åbn systemet og log ud.
 
-### User Story 3 - Fordel heste for en ny måned (Priority: P2)
+- **US8.1:** Når læreren åbner systemet, vises egne hold/elever og skolens heste.
+- **US8.2:** Når eleven åbner systemet, vises egne personoplysninger og hold;
+  eleven kan ikke fordele eller godkende heste.
+- **US8.3:** Når en anden rideskoles profil vælges, vises kun denne skoles data;
+  ændring af id i en forespørgsel giver ikke adgang på tværs af skoler.
 
-Som ridelærer vil jeg samle elevernes ønsker og få et månedligt fordelingsforslag,
-så jeg kan gennemgå hestebrug på tværs af hold uden at sammenholde papirark.
+### US4 — Overblik over egne hold og elever (P1)
 
-**Why this priority**: Månedlig fordeling er en central, tidskrævende caseopgave,
-men er større end den foreslåede første POC.
+Som lærer vil jeg se elevernes forudsætninger, hensyn og hold samlet.
+**Selvstændig afprøvning:** Åbn overblik og Mine elever som lærer.
 
-**Independent Test**: Brug forberedte hold og en måneds undervisningsdatoer;
-kontrollér fordeling, uopfyldte ønsker og kendte partholdstildelinger.
+- **US4.1:** Alle elever på lærerens hold vises med tilknyttede hold og relevante hensyn.
+- **US4.2:** Elever på en anden lærers hold vises kun, hvis de også går på egne hold.
+- **US4.3:** Eleven ser egne hold og kun godkendte tildelinger som sin kommende hest;
+  en kladde vises som afventende godkendelse.
 
-**Acceptance Scenarios**:
+### US2 — Se og registrér heste (P1)
 
-1. **Given** en elev på et hold, **When** ønsker registreres for en ny måned,
-   **Then** kan der gemmes nul til tre forskellige heste; et fjerde eller
-   gentaget ønske afvises med forklaring.
-2. **Given** hold, ønsker og kendt brug i perioden, **When** forslaget dannes,
-   **Then** kontrolleres de konkrete undervisningsdatoer på tværs af hold;
-   uopfyldte ønsker og uafklarede tildelinger fremgår.
-3. **Given** en dokumenteret partholdsaftale, **When** månedsforslaget dannes,
-   **Then** bevares den faste hest, hvis match og belastning er tilladt;
-   ellers markeres konflikten til lærerens behandling.
-4. **Given** konkurrerende ønsker, **When** læreren gennemgår forslaget,
-   **Then** fremgår den anvendte fordelingsregel og begrundelsen for hvert match.
+Som lærer vil jeg se skolens heste, registrere en hest og ændre tilgængelighed.
+**Selvstændig afprøvning:** Søg en hest, åbn detaljer og registrér en demonstrationshest.
 
-### User Story 4 - Hold én fælles hold- og medlemsoversigt (Priority: P2)
+- **US2.1:** Hestelisten kan søges/filtreres; detaljer viser egenskaber, hensyn,
+  aktivitet, kapacitet, kilde og mærkede demonstrationsgrænser.
+- **US2.2:** En ny hest med nødvendige felter gemmes på lærerens rideskole.
+- **US2.3:** Ændret tilgængelighed gør skolens fordelinger til kladder og kræver
+  ny kontrol. En utilgængelig hest kan ikke godkendes til en elev.
+- **US2.4:** Realistiske mockupbilleder vises i hestevalg/detaljer og betegnes som
+  illustrationer. En hest uden billede får en neutral illustration.
 
-Som administrator vil jeg vedligeholde elever, hold, tilmeldinger, ventelister
-og kontingentstatus, så kontoret og lærerne ser samme gældende holdplacering.
+### US7 — Elevens egne hesteønsker (P1)
 
-**Why this priority**: Uens lister skaber fejl og svækker administrationens overblik.
+Som elev vil jeg vælge op til tre ligeværdige heste pr. hold.
+**Selvstændig afprøvning:** Gem ønsker og genåbn dem som elev og holdets lærer.
 
-**Independent Test**: Opret syntetiske elever og hold, flyt en elev og se ændringen
-som lærer; matchning behøver ikke være implementeret.
+- **US7.1:** Nul til tre forskellige ønsker gemmes for egen profil, hold og måned.
+- **US7.2:** Et fjerde eller gentaget ønske afvises. Ingen rangering tilføjes.
+- **US7.3:** Fremmede hold og en anden skoles heste kan ikke vælges.
+- **US7.4:** Læreren ser de gemte ønsker. Ændring sætter skolens fordelinger i kladde.
 
-**Acceptance Scenarios**:
+### US9 — Eleven ændrer egne hensyn (P1)
 
-1. **Given** et hold med ti aktive elever, **When** en ekstra tilmelding forsøges,
-   **Then** afvises tilmeldingen, og eleven kan sættes på venteliste.
-2. **Given** en elev, **When** administratoren flytter eleven fra en bestemt dato,
-   **Then** viser begge holds lister korrekt placering før og efter datoen.
-3. **Given** en venteliste, **When** en plads bliver ledig,
-   **Then** kan administratoren se og tilbyde pladsen til en ventende elev;
-   systemet tilmelder ikke automatisk uden en registreret beslutning.
-4. **Given** en medlemsoversigt, **When** administratoren opdaterer kontingentstatus,
-   **Then** kan status og periode ses af administratoren; læreren får ikke
-   betalingsoplysninger gennem den almindelige undervisningsoversigt.
+Som elev vil jeg fortælle læreren, hvad der støtter min ridning, og kunne rette det.
+**Selvstændig afprøvning:** Åbn Min profil, tilføj/fjern et hensyn, gem og genindlæs.
 
-### User Story 5 - Registrér fremmøde og faktisk hestebrug (Priority: P2)
+- **US9.1:** Eksisterende hensyn vises; eleven kan vælge/fjerne hensyn fra listen.
+- **US9.2:** Gemning bevares efter genindlæsning og vises til elevens lærer.
+- **US9.3:** Ændring af egne hensyn kræver ny gennemgang af egne holds fordelinger.
+- **US9.4:** Ukendte/duplikerede hensyn og forsøg på at ændre andre elever afvises.
+- **US9.5:** Balancehjælp, skånsom belastning, ro og tryghed indgår i det rolige match;
+  Ingen spring blokerer springtildeling. Håndteringshjælp og størrelseshensyn vises
+  til lærerens vurdering; de ændrer ikke automatisk elevens mål eller faglige niveau.
 
-Som ridelærer vil jeg registrere fremmøde og den faktisk anvendte hest for hver
-undervisning, så administrationen og velfærdsoversigten bygger på gennemført brug.
+### US1 — Foreslå, ret og godkend fordeling (P1)
 
-**Why this priority**: En plan dokumenterer ikke, hvem der deltog, eller hvilke
-heste der faktisk blev brugt.
+Som lærer vil jeg fordele egnede heste på et valgt hold ud fra behov og ønsker.
+**Selvstændig afprøvning:** Lav forslag, afklar konflikter, gem rettelser og godkend.
 
-**Independent Test**: Brug en forberedt undervisning med elev- og hesteliste.
-Registrér fremmøde og en erstatningshest, og kontrollér de efterfølgende oversigter.
+- **US1.1:** Et forslag giver hver elev en tildeling eller en synlig besked om manglende
+  match. Forslaget er en kladde, og ønsker vises uden rangering.
+- **US1.2:** Forslag/rettelser kontrollerer registreret tilgængelighed, niveau,
+  eksempel-vægtgrænse, relevant temperament/behov, aktivitet og hviledag.
+  Individuelle begrænsninger fra hestedata kan skærpe kontrollen.
+- **US1.3:** Overlap, daglig/ugentlig kapacitet og registrerede undervisningsdatoer
+  på tværs af skolens hold indgår. Samme hest kan ikke tildeles to elever på holdet.
+- **US1.4:** Ønsker prioriteres efter de fem Clarify-valg. Lige ventetid og manglende
+  historik kræver et begrundet lærervalg; en sikkerhedsafvisning kan ikke overstyres.
+- **US1.5:** En manuel rettelse kontrolleres efter de samme regler. Uløste prioriteringer,
+  manglende elever eller sikkerhedsfejl hindrer godkendelse.
+- **US1.6:** Godkendelse gemmer komplet fordeling, aktør, tidspunkt og historik.
+  En forældet revision afvises; samme godkendelses-id kan sendes igen uden dublet.
+- **US1.7:** Gemte data og godkendelser bevares efter genstart. Efterfølgende ændringer
+  i ønsker, hensyn eller hestetilgængelighed kan gøre fordelingen til kladde igen,
+  mens den tidligere beslutning bevares i historikken.
 
-**Acceptance Scenarios**:
+## Functional Requirements
 
-1. **Given** en undervisning uden registreringer, **When** oversigten åbnes,
-   **Then** står eleverne som ikke registreret, ikke som fraværende.
-2. **Given** en elev, som deltog på en anden hest end planlagt,
-   **When** læreren afslutter registreringen, **Then** bevares både den planlagte
-   tildeling og den faktisk anvendte hest.
-3. **Given** en forkert registrering, **When** en ansvarlig retter den,
-   **Then** kan den tidligere værdi, rettelsen, ansvarlig og tidspunkt efterprøves.
+| ID | Krav | Acceptgrundlag |
+| --- | --- | --- |
+| FR-001 | Foreslå heste for et valgt eget hold og synliggør manglende matches. | US1.1 |
+| FR-002 | Kontrollér højst tre daglige hold, mindst én fridag, højst én ugentlig springaktivitet og lavere individuelle grænser mod registreret plan. | US1.2–3 |
+| FR-003 | Kontrollér niveau, vægtgrænse, relevante behov, temperament og aktivitet; kildefakta og demo-tal skelnes. | US1.2; US9.5 |
+| FR-004 | Afvis dobbelttildeling og overlappende planlagt brug på skolens registrerede lektioner. | US1.3 |
+| FR-005 | Vis ønsker, tildelingsbegrundelser, konflikter og mulighed for manuel rettelse. | US1.1, US1.4–5 |
+| FR-006 | Godkend kun komplette, sikre, afklarede fordelinger med aktuel revision; gem resultat og håndtér gentaget godkendelses-id. | US1.5–7 |
+| FR-007 | Læreren kan registrere heste og ændre tilgængelighed med begrundelse. | US2.1–3 |
+| FR-008 | Efter ændret tilgængelighed kan læreren lave nyt forslag; en utilgængelig hest afvises ved godkendelse. | US2.3; US1.2 |
+| FR-009 | Gem nul til tre forskellige, urangerede ønsker pr. elev/hold/demonstrationsmåned. | US7.1–2 |
+| FR-011 | Prioritér sammenhængende uopfyldt månedsønske blandt egnede elever. Ligelig ventetid og manglende historik kræver lærerbeslutning; nye elever starter på nul. | US1.4; Clarify 1–4 |
+| FR-017 | Bevar aktør/tidspunkt i ændringshistorik og før/efter-snapshots for fordelingsændringer; data består efter genstart. | US1.6–7; US9.2 |
+| FR-020 | Læreren ser/fordeler egne hold; eleven ser egne persondata og kan kun ændre egne ønsker/hensyn. | US8.1–2; US4.1–3; US9.4 |
+| FR-021 | Brug casens 19 heste og 34 elevnavne/fredagshold; øvrige individuelle elevoplysninger og ukendte faglige talgrænser er mærkede demodata. | Datagennemgang; US2.1; US4.1 |
+| FR-022 | Tilbyd profilvalg som lærer/elev uden kode samt logout. | US8.1–3 |
+| FR-023 | Eleven ser egne hold, ønsker og godkendte tildelinger; læreren ser elevønsker. | US4.3; US7.1, US7.4 |
+| FR-024 | Registrér nye heste med egenskaber, aktiviteter, behov og grænser på egen skole. | US2.2 |
+| FR-025 | Afgræns data og relationer pr. rideskole og demonstrér samme model med to skoler. | US8.3; US7.3 |
+| FR-026 | Eleven kan tilføje/fjerne egne hensyn; gemning vises hos læreren og kræver ny gennemgang af egne hold. | US9.1–5 |
+| FR-027 | Vis realistiske, visuelt kontrollerede og mærkede mockupbilleder; bevar fallback ved manglende billede. | US2.4 |
 
-### User Story 6 - Se velfærd, beskeder og nødvendig overlevering (Priority: P3)
+## Edge Cases
 
-Som lærer, afløser eller administrator vil jeg se relevante beskeder og oversigter
-over hestenes brug, så jeg kan forberede undervisningen og opdage mangler.
+- Manglende egnet hest giver uløst tildeling og blokerer komplet godkendelse.
+- Lige ventetid eller ukendt eksisterende historik afgøres ikke stiltiende.
+- Historikreglen bruger registrerede afsluttede måneder; en enkeltlektions
+  godkendelse afslutter ikke en måned eller nulstiller månedsgrundlaget.
+- Ændringer kan gøre en tidligere godkendelse til kladde; historikken bevares.
+- Forældede revisioner, fremmede id'er og uegnede manuelle matches afvises.
+- En elev på flere hold har egne ønsker pr. hold og ét fælles sæt profilhensyn.
+- Nul ønsker og nul hensyn er tilladt. Alle elever skal stadig have egnet hest før godkendelse.
+- Manglende billede vises med fallback; fotos er ikke evidens for reelle hesteegenskaber.
+- Ukendt faktisk brug uden for de registrerede lektioner kan ikke certificeres som sikker.
 
-**Why this priority**: Overblik forbinder de øvrige arbejdsgange og understøtter
-dokumentation; det kan afprøves med forberedte registreringer.
+## Key Entities
 
-**Independent Test**: Brug en kendt uge med plan, faktisk brug og daterede beskeder.
-Åbn oversigten som afløser og administrator.
+Rideskole; profil med rolle/skole; elev med forudsætninger og hensyn; hest med
+aktiviteter, grænser, tilgængelighed og billedreference; hold og medlemskab;
+dateret lektion; urangeret ønske; forberedt månedshistorik; fordeling med revision;
+tildeling; begrundet lærerbeslutning; ændringshistorik og historisk fordelingsversion.
+Login og godkendelses-id'er er tekniske støtteentiteter i planen/datamodellen.
 
-**Acceptance Scenarios**:
+## Success Criteria
 
-1. **Given** en uge med fuldstændige registreringer,
-   **When** velfærdsoversigten åbnes, **Then** vises daglige hold, springaktiviteter
-   og fridage for hver hest, særskilt for planlagt og faktisk brug.
-2. **Given** manglende registreringer, **When** oversigten åbnes,
-   **Then** vises manglerne, og ugen erklæres ikke dokumenteret regeloverholdende.
-3. **Given** en besked om et bestemt hold eller en prøvelektion,
-   **When** en afløser åbner den relevante undervisning,
-   **Then** vises besked, gyldighed, afsender og tidspunkt.
-4. **Given** en bruger uden ansvar for holdet,
-   **When** vedkommende forsøger at se elevhensyn,
-   **Then** gives ikke adgang til disse oplysninger.
+Dette er acceptmål. Udført verifikation står i [verifikation](../../docs/verification.md).
+Et beskrevet mål er ikke automatisk en påstand om en gennemført kontrol.
 
-### Edge Cases
+- **SC-001:** Både lærer og elev kan vælge profil, gennemføre deres hovedforløb og logge ud.
+- **SC-002:** Kendte utilgængelige/dobbelttildelte heste og forældede revisioner afvises;
+  et komplet gyldigt demonstrationshold kan godkendes med begrundede lærerbeslutninger.
+- **SC-004:** Ønsker, tildelinger og historik bevares efter én genstart; egne hensyn
+  bevares efter genindlæsning og vises hos læreren.
+- **SC-007:** Afprøvede rolle-, hold- og skoleoverskridelser afvises; 19 heste og 34
+  elevnavne med medlemskab på fire fredagshold stemmer med kildefilerne.
+- **SC-009:** Eleven kan gemme op til tre forskellige ønsker og tilføje/fjerne hensyn;
+  ugyldige valg afvises uden at ændre andre elevers oplysninger.
+- **SC-010:** Desktop ved 1440 × 1000 og mobil ved 390 × 844 gennemgås uden
+  JavaScript-fejl eller vandret sideoverløb; synlige hestebilleder indlæses korrekt.
 
-- To elever ønsker den samme hest: kun én kan tildeles den ved samme tidspunkt;
-  den anden får en egnet alternativ hest eller en synlig uløst tildeling.
-- Kritiske matchdata eller dele af ugens brug mangler: relevant godkendelse blokeres,
-  indtil data er afklaret; ukendt betyder ikke tilladt.
-- En hest bliver syg efter godkendelse: berørte fordelinger kræver ny kontrol.
-- Hestens lavere individuelle grænse er nået: den individuelle grænse gælder.
-- En ændring til springning eller ekstra hold bryder en ugeregel: godkendelse blokeres.
-- Flere brugere ændrer samme fordeling: en godkendelse skal bruge aktuelle data;
-  en forældet version må ikke stiltiende overskrive en nyere godkendelse.
-- En elev går på flere hold: ønsker og tildelinger knyttes til elevens enkelte hold.
-- Et hold aflyses: aflysningen bevares og tæller ikke som faktisk hestebrug.
-- Hjælpere eller parter bruger en hest: relevant brug indgår i den samlede
-  belastning og må ikke forsvinde, fordi rytteren ikke er en almindelig holdelev.
-- En faktisk hændelse brød en regel: registreringen skal kunne bevares som faktisk
-  hændelse med synlig afvigelse; systemet må ikke kræve en urigtig registrering.
+Tidligere SC-003 (to personer/fem minutter), SC-005–006 (administration/fremmøde)
+og den fulde SC-008 scenariematrix er ikke obligatoriske acceptmål for den valgte
+mockup. Ventetidsreglen er fortsat FR-011. En senere brugerevaluering og bredere
+sikkerhedsafprøvning kan udvide evidensen uden at påstå allerede målte resultater.
 
-## Requirements *(mandatory)*
+## Assumptions and Limitations
 
-### Functional Requirements
+- Oktober 2026 er demonstrationsmåned med forberedte undervisningsdatoer.
+  Måneder vælges ikke frit i brugerfladen, og historik afsluttes ikke automatisk.
+- Hvert fredagshold varer 45 minutter. Anne er demonstrationslærer for de fire hold.
+  Et ekstra torsdagsspringhold og en anden skole er syntetiske demonstrationer.
+- Ugen er mandag–søndag. Kapacitet kontrolleres mod registrerede planlagte lektioner,
+  ikke mod et fuldstændigt register over faktisk ridning, parter eller hjælpere.
+- Matchning omfatter POC-regler og mærkede taleksempler, ikke faglig validering af
+  hestenes bæregrænser. Casens kvalitative hensyn er bevaret.
+- Profilvalg giver ingen verificeret identitet. Rolle- og skolegrænser håndhæves
+  efter valgt profil; en rigtig identitetsudbyder er senere arbejde.
+- Hestebilleder er tre delte mockupmotiver. Egne fotos kan senere erstatte dem;
+  upload er ikke en leveret brugerfunktion.
+- Ingen unit tests kræves. Dokumentation skelner mellem implementeret regel,
+  faktisk afprøvet scenario og en fremtidig evaluering.
 
-| ID | Krav | Acceptgrundlag | Kilde |
-| --- | --- | --- | --- |
-| FR-001 | Systemet skal kunne foreslå heste til et valgt hold ud fra elevforudsætninger, hesteegnethed, ønsker og kendt brug. | US1.1–2 | K1, K5 |
-| FR-002 | Forslag og manuelle rettelser skal kontrolleres mod sygdom/skade, højst tre hold pr. dag, mindst én ugentlig fridag, højst én springaktivitet pr. uge og lavere individuelle grænser. | US1.2–3; US6.1; edge cases | K1, constitution I |
-| FR-003 | Systemet skal kontrollere dokumenterede begrænsninger for rytterbelastning, størrelse, niveau, temperament og aktivitet uden selv at opfinde faglige talgrænser. | US1.2, US1.6 | K1, K4, K5 |
-| FR-004 | Samme hest må ikke tildeles samtidige ryttere, og alle relevante holds og øvrige kendte aktiviteters brug skal indgå i kontrollen. | US1.4; edge cases | K1, K5 |
-| FR-005 | Læreren skal kunne se begrundelser, afvisninger og uopfyldte ønsker samt rette et forslag før godkendelse. | US1.1–3; US3.4 | K5 |
-| FR-006 | Godkendelse skal kræve komplet, konfliktfri fordeling og aktuelle kritiske data; godkender og tidspunkt skal registreres. | US1.5–6; edge cases | Constitution II–III |
-| FR-007 | Ansvarlige skal kunne vedligeholde hestens egenskaber, individuelle grænser, aktivstatus og daterede utilgængelighed. Ændringer skal markere berørte fordelinger til ny kontrol. | US2.1–3 | K1, K5 |
-| FR-008 | Systemet skal tilbyde ny kontrol og egnet omfordeling ved sygdom og vise tydelig mangel på erstatning, når ingen findes. | US2.2 | K5 |
-| FR-009 | Ønsker skal registreres pr. elev, hold og måned med højst tre forskellige heste. | US3.1 | K1 |
-| FR-010 | Systemet skal kunne foreslå en månedsfordeling på tværs af hold og datoer og håndtere dokumenterede partholdsaftaler uden at tilsidesætte sikkerhedsregler. | US3.2–3 | K1 |
-| FR-011 | Den anvendte prioritering ved konkurrerende ønsker skal være synlig; ønsker må kun prioriteres blandt egnede og tilgængelige heste. | US3.4; US1.2 | Constitution I, III |
-| FR-012 | Administratoren skal kunne vedligeholde hold, niveau, tidspunkter og daterede elevtilmeldinger med højst ti aktive elever pr. hold. | US4.1–2 | K1 |
-| FR-013 | Administratoren skal kunne vedligeholde ventelister og registrere tilbud og tilmelding; afløser og lærer skal se samme gældende holdliste. | US4.2–3 | K1 |
-| FR-014 | Administratoren skal kunne registrere medlems- og kontingentstatus for en periode. Automatisk betaling er ikke omfattet. | US4.4 | K1; antagelse A5 |
-| FR-015 | Fremmøde skal kunne angives som til stede, fraværende eller ikke registreret for en konkret undervisning. | US5.1 | K1, K3 |
-| FR-016 | Planlagt hestebrug og faktisk hestebrug skal bevares særskilt, også ved aflysning og erstatningshest. Faktiske regelbrud skal kunne registreres og fremgå som afvigelser. | US5.2; edge cases | Constitution II |
-| FR-017 | Rettelser til fremmøde, tildeling, hesteoplysninger og faktisk brug skal kunne efterprøves med tidligere værdi, ny værdi, ansvarlig og tidspunkt. | US5.3; US1.5 | Constitution II |
-| FR-018 | Velfærdsoversigten skal vise daglig og ugentlig belastning, fridage, afvigelser og manglende data uden at ligestille plan med dokumenteret faktisk overholdelse. | US6.1–2 | K1; constitution II |
-| FR-019 | Daterede beskeder om heste, hold og prøvelektioner skal vises for relevante lærere og afløsere med afsender og tidspunkt. | US6.3 | K1, K5 |
-| FR-020 | Adgang skal afgrænses efter opgave: administration håndterer medlems- og betalingsstatus; staldansvarlig håndterer hesteoplysninger; lærer og afløser ser kun nødvendige elevhensyn for deres hold. | US4.4; US6.4 | Constitution V; antagelse A4 |
-| FR-021 | POC og demonstration skal bruge syntetiske elever og saglige, formålsbestemte hensyn; kildenavne, diagnoser og subjektive elevkarakteristikker må ikke kopieres til demonstrationsdata. | Gennemgang af alle demonstrationsdata | Constitution V |
+## Kilder
 
-### Key Entities *(include if feature involves data)*
-
-- **Elev**: Identitet i systemet, relevante forudsætninger og nødvendige hensyn;
-  demonstrationsidentiteter er syntetiske.
-- **Hest**: Egnethed, temperament, individuelle belastningsgrænser, aktivstatus
-  og perioder med utilgængelighed.
-- **Hold og tilmelding**: Niveau, tidspunkter, lærer, elevplacering og gyldighedsperiode.
-- **Undervisning/aktivitet**: Dato, tidsrum, aktivitetstype og status;
-  også relevant kendt brug uden for almindelige hold.
-- **Ønske**: En elevs op til tre heste for et bestemt hold og en bestemt måned.
-- **Tildeling og fordelingsforslag**: Elev, hest, undervisning, begrundelse,
-  konflikter, godkendelsesstatus og godkender.
-- **Fremmøde og faktisk brug**: Elevens deltagelse og den faktisk brugte hest
-  ved en konkret undervisning; adskilt fra planen.
-- **Venteliste og medlemsstatus**: Ønsket hold, ventestatus, tilbud samt medlems-
-  og kontingentstatus for en periode.
-- **Besked og ændringshistorik**: Relevant emne, gyldighed, indhold, ansvarlig,
-  tidspunkt og dokumentation af ændringer.
-
-## Success Criteria *(mandatory)*
-
-### Measurable Outcomes
-
-Følgende er foreslåede acceptmål, ikke dokumenterede driftsgevinster.
-
-- **SC-001**: På et syntetisk hold med ti elever skal hver elev få et begrundet
-  match eller en konkret uløst-status; ingen elever må forsvinde fra resultatet.
-- **SC-002**: I mindst ét afprøvningsscenarie for hver af sygdom, fjerde daglige
-  hold, manglende fridag, anden ugentlige springning, individuel grænse,
-  uegnet match og dobbelttildeling skal 100 % af de kendte konflikter identificeres
-  og hindre godkendelse. Gyldige matches skal også kunne godkendes.
-- **SC-003**: Mindst to gruppemedlemmer, som ikke har bygget forløbet, skal hver
-  kunne gennemføre forslag, rettelse og godkendelse for et forberedt hold på
-  højst fem minutter uden mundtlig hjælp. Resultater og problemer registreres.
-- **SC-004**: Alle godkendelser og afprøvede rettelser skal vise ansvarlig og
-  tidspunkt; ingen af de afprøvede historiske ændringer må gå tabt.
-- **SC-005**: I afprøvningen af holdadministration skal lærer og administrator
-  se samme elevplacering for alle afprøvede datoer, og det ellevte medlems optagelse
-  på et fyldt hold skal afvises.
-- **SC-006**: I afprøvningen af fremmøde og velfærd skal alle forberedte tilfælde
-  af erstatningshest, manglende registrering og aflyst undervisning vises korrekt;
-  ingen ufuldstændig uge må erklæres dokumenteret regeloverholdende.
-- **SC-007**: Alle demonstrationspersoner skal være syntetiske, og alle afprøvede
-  adgangsforsøg uden den nødvendige rolle og holdtilknytning skal afvises.
-
-SC-001–004 og datadelen af SC-007 gælder den foreslåede første POC.
-SC-005–006 og adgangskontrol i SC-007 gælder den bredere løsning og er ikke
-allerede lovet som implementeret i POC'en.
-
-## Assumptions
-
-### Omfang og foreslået POC
-
-- **A1 — Bred specifikation, lille POC**: Hele casens systembehov beskrives her.
-  Første POC foreslås afgrænset til US1 for ét hold og én undervisningsdato med
-  forberedt ugentlig belastning, syntetiske elever, heste og ønsker. Den viser
-  forslag, begrundelser, rettelse, konflikter og godkendelse. US2–6 bygges ikke
-  automatisk som del af denne POC. Gruppen bekræfter afgrænsningen i Clarify.
-- **A2 — Ugebegreb og belastning**: Afprøvningen bruger mandag–søndag og konkrete
-  undervisningsdatoer. Relevant kendt ridning, også ved hjælper og part, medregnes
-  som én aktivitet i de demonstrerede holdgrænser. Dette er en konservativ
-  afprøvningsantagelse, ikke en fagligt bekræftet definition af al ridning.
-- **A3 — Konkurrerende ønsker**: Ønsker behandles som et sæt uden antaget rangering.
-  POC'en lover ingen optimal eller historisk retfærdig fordeling. Den anvendte
-  reproducerbare tie-break-regel skal dokumenteres i planen; sikkerhed prioriteres
-  altid først. Rotation og længerevarende prioritering af uopfyldte ønsker skal
-  afklares, før den fulde månedsfordeling planlægges.
-- **A4 — Roller**: Rollefordelingen i FR-020 er et forslag. I POC'en kan lærerrollen
-  og de øvrige roller være simulerede og skal da fremgå som simulerede. Det giver
-  ikke grundlag for at anvende virkelige personoplysninger.
-- **A5 — Administration**: Kontingentstatus registreres manuelt. Betalingsløsning,
-  automatisk opkrævning, kommunal indberetning og eksterne integrationer er uden
-  for denne specifikations leverance. Oversigter understøtter kontrol uden at
-  love et ikke-oplyst officielt rapportformat.
-- **A6 — Enheder og drift**: POC'en afprøves på gruppens computer med tilgængelige
-  demonstrationsdata. Mobilbrug, offlinebrug og faktisk drift afklares særskilt.
-  Forældreapp og fuldt hestemanagement er fremtidige udvidelser.
-
-### Afhængigheder og afklaringspunkter
-
-- En fagligt ansvarlig skal fastlægge hestenes konkrete match- og belastningsgrænser.
-  Indtil da må POC'en kun anvende tydeligt mærkede syntetiske eksempelgrænser.
-- Den fulde løsning kræver et dækkende billede af ugentlig brug, inklusive relevante
-  aktiviteter uden for de viste hold. Bilagene giver ikke alene fuldstændige data.
-- Gruppen skal ved Clarify bekræfte POC-omfang, ugebegreb, konkurrence mellem ønsker
-  og rollefordeling eller justere de markerede antagelser.
-- Brug af virkelige personoplysninger kræver særskilt afklaring af ansvar, adgang
-  og opbevaring i overensstemmelse med constitution.
-
-### Kilder og prioritet
-
-- **K1**: `base-case-files/Casebeskrivelse, BPMN.pdf`, side 2–4. Primær kilde til
-  formål, roller, holdtyper, højst ti elever, ønsker og fire velfærdsregler.
-- **K2**: `base-case-files/Holdoversigt, uge.pdf`. Holdkontekst; varierende perioder
-  og niveauer skal afklares før brug som gældende oplysninger.
-- **K3**: `base-case-files/Afkrydsningslister.pdf`. Baggrund for fremmøderegistrering.
-- **K4**: `base-case-files/fredagsheste jan-jun TIL CASE.pdf`. Baggrund for individuelle
-  hensyn; ingen identificerende elevdata overføres til POC'en.
-- **K5**: `base-case-files/Transkripering af domæne ekspert.md`. Supplerende kilde til
-  manuel fordeling, matchhensyn, overlevering og lærerens kontrol af forslag.
-- **Styrende grundlag**: `.specify/memory/constitution.md`, version 1.0.0.
-
-K1 og K5 er læst ved udarbejdelsen. K2–K4 bruges her gennem den eksisterende
-constitutions opsummering; detaljer skal efterprøves ved brug i senere arbejde.
-Ved modstrid går casen forud for interviewet: undtagelsen med fire daglige hold
-indføres ikke. Foreslåede løsningskrav og mål er gruppens arbejdsudkast,
-ikke påstande om eksisterende praksis eller allerede målte resultater.
+K1: `base-case-files/Casebeskrivelse, BPMN.pdf`, velfærdsregler og op til tre ønsker.
+K4: `base-case-files/fredagsheste jan-jun TIL CASE.pdf`, s. 1–2 navne/hold, s. 3 heste.
+K5: `base-case-files/Transkripering af domæne ekspert.md`, praktisk fordeling og kontrol.
+Brugerens fem Clarify-valg, stackvalg og efterfølgende udvidelser er projektbeslutninger.
+Detaljer og skel mellem kilde og demo findes i `docs/horse-data.md`,
+`docs/student-data.md` og `docs/horse-images.md`.

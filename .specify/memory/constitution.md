@@ -1,211 +1,151 @@
-# Hestecase — Bøgegården Constitution
+# Hestecase — Stald Constitution
 
-**Status: Vedtaget som gruppens fælles arbejdsgrundlag den 2026-10-06.**
-
-Dette dokument beskriver de principper, som skal styre krav, planlægning, kode og
-vurdering af løsningen. Det er ikke en detaljeret kravspecifikation.
-“Materiale” er oplysninger fra kilderne. “Princip” og “Kontrol” er foreslåede
-projektregler. Gruppens allerede oplyste valg er markeret særskilt.
+Vedtaget første gang 2026-10-06. Denne version afstemmer arbejdsgrundlaget med
+brugerens valgte og implementerede mockup. Principperne styrer krav, plan,
+implementering og vurdering; de er ikke en liste over hele rideskolens systembehov.
 
 ## Core Principles
 
 ### I. Sikkerhed og hestevelfærd går forud for ønsker
 
-**Materiale:** Casen fastlægger højst tre hold pr. hest pr. dag, en ugentlig fridag,
-højst én springning pr. uge og ingen brug af syge eller skadede heste. Hestebilaget
-beskriver individuelle begrænsninger i blandt andet aktivitet, temperament og
-rytterbelastning. Interviewet fremhæver vægt, størrelse, balance og tryghed (K1, K4, K5).
+Forslag, manuelle rettelser og godkendelser skal kontrolleres på serveren mod
+registrerede elevhensyn, hestens egnethed, tilgængelighed og kendte planlagte brug.
+Samme hest må ikke bruges på overlappende lektioner. Grænserne er højst tre hold
+pr. dag, mindst én ugentlig fridag og højst én springaktivitet pr. uge; lavere
+individuelle grænser gælder. Ønsker og ventetid prioriteres kun blandt egnede matches.
 
-**Princip:** Forslag og manuelle ændringer skal kontrolleres mod kendte sikkerheds-
-og velfærdsbegrænsninger før godkendelse. En hest må ikke dobbelttildeles til samtidige
-ryttere. Elevønsker må kun prioriteres blandt egnede og tilgængelige heste.
-Den samlede planlagte brug på tværs af hold og ugedage skal indgå i kapacitetskontrollen.
-Individuelle, lavere belastningsgrænser skal respekteres.
+Kildeoplysninger og demonstrationsværdier skal kunne skelnes. Manglende numeriske
+hestegrænser må udfyldes med mærkede eksempler til mockuppen, men ikke fremstilles
+som fagligt validerede casefakta. Ingen egnet hest skal give en synlig uløst tildeling.
 
-Matchgrundlaget skal omfatte relevante elevoplysninger om højde, vægt, alder,
-erfaring/niveau, ønsker og konkrete hensyn samt hestens egnethed og tilgængelighed.
-Alder eller højde må ikke alene bruges til at udlede rideevne eller tilladt belastning.
-Talgrænser må ikke opfindes som casefakta. Manglende kritiske oplysninger eller mangel
-på en egnet hest skal fremgå som uafklaret; et match må ikke fremtvinges.
+**Begrundelse:** Lærerens fordelingsarbejde kræver hensyn til både elev og hest.
+**Kontrol:** Gennemgå sikkerhedsreglerne og afprøv blandt andet utilgængelig hest,
+dobbelttildeling og en rettelse, der ikke kan godkendes.
 
-**Hvorfor:** Et ønsket match er kun brugbart, hvis både hest og rytter kan gennemføre det.
-**Kontrol:** Afprøv syg hest, fjerde daglige hold, manglende fridag, gentagen springning,
-uønsket dobbelttildeling og en elev uden nogen egnet hest.
+### II. Fælles oplysninger og beslutninger skal kunne efterprøves
 
-### II. Fælles, daterede oplysninger skal kunne efterprøves
+Krav og data skal have kilde eller en tydelig markering som demonstrationsvalg.
+Gemte ønsker, heste, fordelinger og historik skal bevares i databasen efter genstart.
+Fordelingsændringer skal have historiske snapshots; godkendelser og relevante
+ændringer skal have ansvarlig og tidspunkt i historikken.
 
-**Materiale:** Holdniveauer og elevplaceringer varierer mellem bilagene. Interviewet
-beskriver forskellige lister og mangelfuld overlevering (K1-K5).
+Mockuppen registrerer planlagt undervisning. Den må ikke fremstille planen som
+faktisk fremmøde, faktisk hestebrug eller dokumenteret fuldstændig ugentlig velfærd.
 
-**Princip:** Krav og data skal kunne spores til case, interview eller en markeret
-antagelse. Modstridende oplysninger skal synliggøres og afklares før brug som fakta.
-Relevante ændringer skal kunne knyttes til ansvarlig og tidspunkt. Planlagt hestebrug
-skal skelnes fra faktisk gennemført brug; en plan dokumenterer ikke faktisk overholdelse.
-Et tomt fremmødefelt må ikke automatisk fortolkes som fravær.
-
-**Gruppens valg:** Interviewet handler om Bøgegården og supplerer casen. Ved modstrid
-lægger projektet casen til grund og registrerer forskellen. Interviewets mulighed
-for fire daglige hold ændrer derfor ikke casens grænse på tre.
-
-**Hvorfor:** Fælles, sporbare oplysninger begrænser fejl og gør beslutninger forståelige.
-**Kontrol:** Gennemgå centrale krav for kildehenvisning og markering af antagelser.
+**Begrundelse:** Fælles, sporbare oplysninger gør fordelingen forståelig.
+**Kontrol:** Kontrollér historik og bevarelse af data efter genstart.
 
 ### III. Ridelæreren kontrollerer og godkender fordelingen
 
-**Materiale:** Casen ønsker automatisk månedlig tildeling med hensyn til op til tre
-ønsker. Interviewet præciserer ønsket om forslag, som instruktøren kan tjekke og rette
-(K1, K5). Parthold og individuelle begrænsninger kan begrunde gentagne matches (K1, K4).
+Matchning er beslutningsstøtte. Læreren skal kunne lave et forslag, se elevernes
+hensyn og ønsker, rette tildelinger og godkende. Sikkerhedsfejl, manglende
+tildelinger og uafklarede prioriteringer skal blokere godkendelse.
 
-**Princip:** Digital matchning skal være beslutningsstøtte. Ridelæreren skal kunne
-forstå begrundelsen, gennemgå og godkende en fordeling samt rette den inden brug.
-En rettelse skal kontrolleres efter de samme regler som det oprindelige forslag.
-Uopfyldte ønsker og uløste konflikter skal fremgå. Systemet må ikke skjule manglende
-kapacitet ved at tilsidesætte sikkerhedsregler.
+Ved konkurrerende ønsker prioriteres sammenhængende måneders uopfyldt ønske blandt
+egnede elever. Ved lige ventetid vælger læreren med begrundelse. Nye elever starter
+på nul; manglende historik for eksisterende elever kræver lærerens afklaring.
+Godkendelse skal bruge den aktuelle revision og må ikke tilsidesætte sikkerhed.
 
-**Hvorfor:** Lærerens viden er nødvendig, mens den digitale kontrol kan mindske manuelt arbejde.
-**Kontrol:** Gennemgå et forslag med konkurrerende ønsker og en manuel ændring,
-som ville overskride en hests belastningsgrænse.
+**Begrundelse:** Læreren har ansvar for at gennemgå systemets forslag.
+**Kontrol:** Følg forslag → rettelse → begrundet valg → godkendelse og afprøv en
+forældet revision. Afslutning af en måned er ikke en del af mockuppen.
 
-### IV. Arbejdsgange skal fungere under undervisningens tidspres
+### IV. Arbejdsgange skal være overskuelige for lærer og elev
 
-**Materiale:** Casen beskriver akutte ændringer, mangelfuld overlevering og ingen
-pauser mellem hold. Interviewet nævner pauser; denne forskel er ikke afklaret (K1, K5).
+Brugerfladen skal være på dansk og vise rollebestemt navigation, tydelige
+hovedhandlinger, gemt-status og konkrete fejl. Læreren skal se egne elever og hold
+samt skolens heste. Eleven skal se egne hold, ønsker, tildelinger og profil.
+Desktop og mobil skal kunne bruges uden vandret overflødigt sideoverløb.
 
-**Princip:** Brugerfladen skal gøre relevante oplysninger, matchforslag og konflikter
-forståelige for ridelærere og afløsere. Den valgte user story skal kunne gennemføres
-som et sammenhængende forløb. Gruppen skal aftale målbare acceptkriterier, før den
-vurderer brugervenlighed eller tidsbesparelse. Der må ikke loves driftsgevinster
-alene på baggrund af en demonstration.
+Hestebilleder skal gennemgås visuelt og mærkes som mockups, når de ikke viser den
+faktiske hest. Demonstrationen må ikke bruges som bevis på målte tidsbesparelser.
 
-**Hvorfor:** En løsning skal hjælpe den person, der træffer beslutningen i praksis.
-**Kontrol:** Lad en anden i gruppen gennemføre POC-forløbet efter acceptkriterierne.
+**Begrundelse:** Et samlet overblik skal støtte den praktiske arbejdsgang.
+**Kontrol:** Afprøv lærer- og elevforløb i browseren på desktop og mobil.
+Gruppens egen vurdering af brugervenlighed dokumenteres særskilt.
 
-### V. Registrér kun nødvendig og saglig viden om personer
+### V. Personoplysninger skal være formålsbestemte og kunne rettes
 
-**Materiale:** Casen advarer om personfølsom tavs viden. Bilaget omfatter børn og
-individuelle hensyn. Undervisningen kræver anonymiserede eller syntetiske persondata
-i delte projektmaterialer og prototyper (K1, K4, K6).
+Efter brugerens udtrykkelige valg bruges de 34 elevnavne og deres fire fredagshold
+fra `fredagsheste jan-jun TIL CASE.pdf`. Dette er en afgrænset undtagelse fra det
+tidligere valg om udelukkende syntetiske navne. Individuelle kropsmål, niveauer,
+behov, ønsker og ventetid er fortsat markerede demodata. Diagnoser og subjektive
+karakteristikker fra elevbilaget kopieres ikke.
 
-**Princip:** POC og demonstration skal bruge syntetiske persondata. Hvert personfelt
-skal have et konkret formål, og adgangen til oplysninger skal afgrænses efter opgaven.
-Sikkerhedsrelevante hensyn skal beskrives sagligt og kunne rettes. Diagnoser og
-subjektive karakteristikker må ikke ukritisk kopieres fra bilagene.
-Før eventuel brug af virkelige oplysninger skal ansvar, adgang og opbevaring afklares.
-Interviewpersonens vurderinger af persondata må ikke behandles som juridisk godkendelse.
+Eleven skal kunne tilføje og fjerne egne funktionelle hensyn. Læreren ser hensyn
+for sine hold. Adgang skal afgrænses efter rolle, egen profil, egne hold og rideskole.
+Profilvalg uden kode er demonstrationsadgang og dokumenterer ikke en persons identitet.
 
-**Hvorfor:** Nødvendig matchviden kan beskrives uden at gengive identificerbare børns forhold.
-**Kontrol:** Gennemgå POC-data og begrund hvert elevfelt, der anvendes.
+**Begrundelse:** Mockuppen skal bruge de ønskede casenavne og saglig matchviden.
+**Kontrol:** Kontrollér datakilder, egen profilredigering og afvisning af fremmede
+hold, andre elevers ændringer og en anden rideskoles data.
 
-### VI. Krav og acceptkriterier skal styre udviklingen
+### VI. Krav, plan, opgaver og resultat skal hænge sammen
 
-**Materiale:** Undervisningen bruger forløbet Constitution, Specify, Clarify, Plan,
-Tasks, Implement og Converge. Gruppen skal kontrollere AI-output og tage beslutningerne
-selv. User stories skal have acceptkriterier (K6, slide 48-54; K7, slide 3-7 og 10-18).
+Arbejdsgangen er Constitution → Specify → Clarify → Plan → Tasks → Implement →
+verifikation og afstemning. Hvert trin bruger beslutningerne fra de foregående trin.
+Krav skal have acceptscenarier; opgaver skal kunne spores til krav og plan.
+Ændrer brugeren omfanget undervejs, opdateres de berørte artefakter som en iteration.
+Dokumenterne må ikke foregive, at senere udvidelser var færdigplanlagt fra starten.
 
-**Princip:** Gruppen skal gennemgå krav og åbne spørgsmål, før de bruges som grundlag
-for en teknisk plan. Planen skal styre opgaverne; opgaverne skal kunne føres tilbage
-til user stories og acceptkriterier. Kode skal kontrolleres mod de aftalte kriterier,
-herunder relevante fejl- og undtagelsessituationer.
-AI-genererede beslutninger og påstande skal efterprøves. Uafklarede forretningsregler
-skal forelægges gruppen eller markeres som antagelser og må ikke skjules i koden.
-Ved evaluering skal mangler registreres som opfølgende opgaver.
+Ingen unit tests kræves til denne mockup. Produktionsbuild, relevante API-forløb,
+rolle-/skolegrænser, datalagring og browserforløb skal kontrolleres. Testmål skal
+skelnes fra faktisk udførte kontroller; kendte begrænsninger skal dokumenteres.
 
-**Hvorfor:** Sammenhæng mellem krav, plan og resultat gør løsningen vurderbar.
-**Kontrol:** Følg en udvalgt user story fra kilde og krav til kode og testresultat.
+**Begrundelse:** Sporbarhed gør løsningen og arbejdsprocessen vurderbare.
+**Kontrol:** Følg en user story fra Specify via plan og opgaver til kode og dokumenteret
+verifikation. Konsistenskontrollen erstatter ikke gruppens egen evaluering.
 
-### VII. Afgræns piloten og muliggør senere udvidelser
+### VII. Afgræns mockuppen og muliggør videreudvikling
 
-**Materiale:** Modul 1 kræver specifikation af hele casen. Modul 2 kræver planlægning,
-en lille kodet, klikbar POC for én valgt user story og efterfølgende evaluering.
-Python er angivet som dagens teknologivalg (K6, slide 51-52; K7, slide 4-7).
-Casen efterspørger mulighed for senere udvidelser (K1, s. 4).
+Projektets leverance er den valgte mockup: lærer-/elevadgang, overblik, heste,
+elevønsker, egne hensyn, fordelingsforslag, rettelser, godkendelse og historik.
+Betaling, ventelister, medlemsadministration, fremmøde, afløserrolle og fuld
+månedsoptimering er mulige udvidelser og er ikke uafsluttede krav i denne leverance.
 
-**Gruppens valg:** POC-fokus er matchning mellem heste og elever ud fra elevens
-forudsætninger og ønsker, uden at hestens begrænsninger overskrides.
+Den valgte stack er Docker, JavaScript, Express, React, Tailwind og PostgreSQL.
+Domænet skal bruge tredje normalform og rideskoleafgrænsede relationer. Matchregler,
+dataadgang og præsentation skal holdes adskilt. Ingen ekstra services indføres uden
+et konkret behov. Flere skoler demonstreres gennem samme datamodel.
 
-**Princip:** Den bredere specifikation skal holdes adskilt fra den user story, som
-faktisk implementeres. POC'en skal være lille nok til at bygge og afprøve og må ikke
-automatisk udvides til hele systemet. Den tekniske plan skal tage udgangspunkt i
-undervisningens Python-ramme; et eventuelt afvigende valg skal afklares med underviseren.
-Matchregler og data skal holdes adskilt fra præsentationen, så de kan ændres og testes.
-Simulerede data og funktioner skal fremgå tydeligt.
-
-**Hvorfor:** Et afgrænset, afprøvet forløb giver et konkret grundlag for læring og evaluering.
-**Kontrol:** Angiv præcist, hvad POC'en demonstrerer, simulerer og ikke omfatter.
+**Begrundelse:** En afgrænset løsning kan gennemgås og senere udbygges.
+**Kontrol:** Angiv implementeret, kildebaseret og simuleret funktionalitet samt
+mulige udvidelser i Specify, datamodel og dokumentation.
 
 ## Projektets ramme og kilder
 
-Dette dokument vedrører **systemudvikling**. BPMN, SIPOC, gapanalyse og digital
-modenhed hører i projektet til **forretningsdesign** og bruges som baggrund for krav.
-De erstatter ikke specifikation, teknisk plan, opgaveliste, kode og evaluering.
+K1: `base-case-files/Casebeskrivelse, BPMN.pdf`, s. 2–4, case og velfærdsregler.
+K4: `base-case-files/fredagsheste jan-jun TIL CASE.pdf`, s. 1–2 elevnavne/hold og
+s. 3 heste. K5: `base-case-files/Transkripering af domæne ekspert.md`, praktisk
+fordeling og lærerens kontrol. Øvrige bilag og undervisningsslides er procesbaggrund.
+Ved modstrid anvendes casens maksimum på tre daglige hold frem for interviewets fire.
 
-POC-fokus er valgt, men en præcis user story med acceptkriterier skal stadig afgrænses.
-Fremmøde, kontingentbetaling, ventelister og en forældreapp er ikke automatisk del af
-matchnings-POC'en. Nødvendige oplysninger om hold, aktiviteter og ugentlig hestebrug
-skal dog være til rådighed, hvis de indgår i de regler, som POC'en demonstrerer.
-En fuld automatisk månedsfordeling er ikke allerede besluttet som POC-omfang.
-
-Kilder, som er læst i projektarbejdet (sidenumre inkluderer forsider):
-
-- **K1:** `base-case-files/Casebeskrivelse, BPMN.pdf`, s. 2-4.
-- **K2:** `base-case-files/Holdoversigt, uge.pdf`, s. 1.
-- **K3:** `base-case-files/Afkrydsningslister.pdf`, s. 1-2.
-- **K4:** `base-case-files/fredagsheste jan-jun TIL CASE.pdf`, s. 1-5.
-- **K5:** `base-case-files/Transkripering af domæne ekspert.md`.
-- **K6:** `slides-fra-undervisningen/ITA systeudvikling AI og case.pdf`, især slide 48-54.
-- **K7:** `slides-fra-undervisningen/ITA systemudvikling spec driven II E2026.pdf`,
-  især slide 4-7 og 10-18.
-- **K8:** `base-case-files/Heste Case SIPOC.pdf`, supplerende procesoverblik fra gruppen.
+Afprøvningen bruger konkrete oktoberdatoer, mandag–søndag som uge og registrerede
+lektioner som belastningsgrundlag. Demo-vægtgrænser og individuelle mål er ikke
+fagligt validerede. Fuld ugentlig aktivitet, produktion og identitetskontrol kræver
+senere afklaring og er ikke påstået leveret.
 
 ## Udviklingsproces og kvalitetskontrol
 
-Arbejdet følger Constitution → Specify → Clarify → Plan → Tasks → Implement → Converge.
-Hvert trin skal bruge den gældende constitution og de foregående projektartefakter.
+Projektforløbet og de senere brugerændringer dokumenteres i `docs/process.md`.
+Den gældende spec afgrænser leverancen; plan og tasks beskriver løsningen og
+arbejdet. `docs/verification.md` indeholder faktisk udførte kontroller.
 
-- Før teknisk planlægning skal den valgte user story have acceptkriterier, og kritiske
-  åbne spørgsmål skal være afklaret eller dækket af tydeligt markerede antagelser.
-- Før implementering skal opgaverne kunne spores til krav og plan. Teknologivalg og
-  eventuelle afvigelser fra undervisningens ramme skal begrundes i planen.
-- Matchlogik skal afprøves med både gyldige matches og brud på de sikkerhedsregler,
-  som den valgte POC omfatter. Resultaterne skal dokumenteres; en vellykket
-  demonstration alene dokumenterer ikke, at reglerne virker i fejltilfælde.
-- Ændringer deles i GitHub via branches og pull requests. Før en pull request flettes
-  til `main`, skal mindst ét andet gruppemedlem gennemgå ændringen mod krav og
-  relevante principper. Kendte mangler og afvigelser skal fremgå af reviewet.
-- Ved evaluering skal implementeret, simuleret og manglende funktionalitet skelnes.
-  Mangler registreres som opgaver med henvisning til det berørte acceptkriterium.
-
-Gruppen skal gennemgå principperne og registrere de ændringer, den beslutter.
-Nedenstående spørgsmål skal besvares i den kommende afklaring eller erstattes af
-udtrykkeligt markerede, afgrænsede antagelser. De er ikke allerede besluttet:
-
-- **TODO(MATCHREGLER):** Hvem fastlægger konkrete grænser for vægt, størrelse,
-  niveau og belastning for hver hest? Hvilke elevhensyn skal kunne blokere et match?
-  Hvordan defineres uge, fridag og brug ved parter og hjælperridning?
-- **TODO(FORDELING):** Hvordan prioriteres konkurrerende ønsker, tidligere tildelinger,
-  parter og elevudvikling? Hvad gør læreren, når ingen egnet hest er tilgængelig?
-- **TODO(DATA):** Hvilke bilag og perioder gælder? Holdniveauer og elevplaceringer
-  varierer; der forekommer dobbelttildelinger samt tomme felter og streger med ukendt
-  betydning. Der mangler fuldstændige ugentlige hestetildelinger og præcise matchgrænser.
-- **TODO(POC):** Hvilken enkelt user story bygges, og hvilke målbare acceptkriterier
-  skal den opfylde? Hvilke regler demonstreres med syntetiske data?
-- **TODO(PRAKTIK):** Hvilke enheder og netforhold forudsættes? Hvem vedligeholder
-  hesteoplysninger, og hvilke brugere må se og ændre hvilke data?
+Gruppen skal gennemgå resultatet mod acceptscenarierne. En efterfølgende afstemning
+skal registreres som en iteration; historiske testresultater må ikke omskrives til
+resultater for senere versioner. Nye produktønsker kræver opdaterede krav og opgaver.
 
 ## Governance
 
-Gruppens vedtagelse er bekræftet af brugeren den 2026-10-06. Denne version er
-projektets første vedtagne constitution.
+Denne opdatering er udført efter brugerens anmodning om at afstemme projektgrundlaget
+med den ønskede mockup. Tidligere vedtagelse og afklaringer bevares som proceshistorik.
+Ændringer begrundes og afstemmes i berørte dokumenter. Gruppen gennemgår dem før
+fælles aflevering. Ved deling via GitHub anvendes review; det aktuelle lokale arbejde
+på `main` dokumenteres og fremstilles ikke som et allerede gennemført PR-review.
 
-Efter vedtagelse er principperne fælles ramme for specifikation,
-plan og implementering. Ved modstrid skal dokumenterne afstemmes og beslutningen
-registreres. Ændringer skal foreslås i en pull request, beskrive begrundelse og konsekvenser
-og godkendes af gruppen. Berørte krav, planer og opgaver skal derefter afstemmes.
-Ved hver overgang i Spec Kit-forløbet kontrollerer gruppen princippernes overholdelse.
+Versioner følger semantisk versionering: major ved ændrede grundprincipper,
+minor ved udvidede regler, patch ved sproglige præciseringer.
+1.0.0 var første arbejdsgrundlag; 1.1.0 fastlagde stack og POC-plan. 2.0.0 afstemmer
+princip V og VII med brugerens casenavne og endelige mockup-afgrænsning.
 
-Versionspolitik: Første vedtagne version bliver 1.0.0. Derefter ændres hovedversionen
-ved uforenelige ændringer eller fjernelse af principper, minorversionen ved tilføjelser
-og væsentlige udvidelser og patchversionen ved sproglige præciseringer.
-Version 1.0.0 fastlægger de principper og den udviklingsproces, som gruppen har vedtaget.
-
-**Version**: 1.0.0 | **Ratified**: 2026-10-06 | **Last Amended**: 2026-10-06
+**Version**: 2.0.0 | **Ratified**: 2026-10-06 | **Last Amended**: 2026-10-06
